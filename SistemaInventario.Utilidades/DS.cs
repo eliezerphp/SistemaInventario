@@ -8,5 +8,7 @@ namespace SistemaInventario.Utilidades
 {
     public static class DS //Se define que será de tipo publica y estatica.
     {
+        public const string Exitosa = "Exitosa";
+        public const string Error = "Error";
     }
 }

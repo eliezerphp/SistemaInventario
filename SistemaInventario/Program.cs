@@ -16,7 +16,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); //SE agrego AddRazorRuntimeCompilation que viene con el paquete nuget runtimeCompilation
 
-builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo >
+
+//Agregando la Unidad de trabajo
+builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();
 
 var app = builder.Build();
 

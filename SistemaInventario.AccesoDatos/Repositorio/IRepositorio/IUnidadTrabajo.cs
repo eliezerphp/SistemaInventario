@@ -9,7 +9,10 @@ namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
 
     //el IDisposable te permite deshacerte de cualquier recurso que haya obtenido el sistema y liberar objetos
     //que ya no esten usando y que esten consumiendo recursos innecesariamente
-    internal interface IUnidadTrabajo : IDisposable
+    public interface IUnidadTrabajo : IDisposable
     {
+        IBodegaRepositorio Bodega { get; }
+
+        Task Guardar(); //metodo asincrono que se encargara de guardar los cambios
     }
 }

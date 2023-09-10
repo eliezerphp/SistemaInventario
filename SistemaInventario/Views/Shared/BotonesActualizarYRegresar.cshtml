@@ -1,0 +1,6 @@
+﻿@model int //Para capturar el id y mandarlo a la funcion Upsert
+
+<div class="d-grid gap-2 d-md-block"> <!--en asp-route-id, la parte de "-id" es el id que espera la funcion Upsert en BodegaController-->
+    <button type="submit" class="btn btn-primary" onfocus="false" asp-route-id="@Model"><i class="bi bi-pencil-square"></i> Guardar cambios </button>
+    <a asp-action="Index" class="btn btn-success"><i class="bi bi-arrow-return-left"></i> Regresar</a>
+</div>

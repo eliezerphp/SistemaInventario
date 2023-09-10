@@ -15,24 +15,24 @@ namespace SistemaInventario.AccesoDatos.Repositorio
         //podremos usar la unidad de trabajo en cualquier momento y tener acceso a todos los repositorios
         //para que este accesible en todo el proyecto, debemos agregar la UnidadTrabajo como un servicio en el archivo program.cs
 
-        private readonly ApplicationDbContext _db;
-        public IBodegaRepositorio Bodega {  get; private set; }
+            private readonly ApplicationDbContext _db;
+            public IBodegaRepositorio Bodega {  get; private set; }
 
-        public UnidadTrabajo(ApplicationDbContext db)
-        {
-            _db = db;
-            Bodega = new BodegaRepositorio(_db);
+            public UnidadTrabajo(ApplicationDbContext db)
+            {
+                _db = db;
+                Bodega = new BodegaRepositorio(_db);
 
-        }
+            }
 
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
+            public void Dispose()
+            {
+                _db.Dispose();
+            }
 
-        public async Task Guardar()
-        {
-            await _db.SaveChangesAsync(); 
-        }
+            public async Task Guardar()
+            {
+                await _db.SaveChangesAsync(); 
+            }
     }
 }
