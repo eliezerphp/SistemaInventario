@@ -1,0 +1,98 @@
+﻿@model SistemaInventario.Modelos.Marca //Agregando el modelo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear Marca";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div><!--el asp-validation-summary es para que todas las validaciones que tengamos en nuestro modelo se muestren aqui-->
+        </div>
+
+        @if (Model.Id != 0)
+        {
+            //Actualizar
+            titulo = "Actualizar Marca";
+            <input type="hidden" asp-for="Id" id="id"/>//almacenara el Id oculto y con la propiedad asp-for accedemos a el
+        }
+            <div class="col-12 border-bottom p-0">
+                <h2 class="text-primary">@titulo</h2>
+            </div>
+        
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre</label>
+                <input type="text" asp-for="Nombre" class="form-control" id="nombre" placeholder="Nombre de la Marca" />
+                <span asp-validation-for="Nombre" class="text-danger"></span> <!-- muestra el Data Annotation definido en el Modelo de Bodega, mensaje de que el campo es requerido -->
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Descripcion</label>
+                <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion de la Marca" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span> <!-- muestra el Data Annotation definido en el Modelo de Bodega, mensaje de que el campo es requerido -->
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Estado</label>
+                <select asp-for="Estado" class="form-select">
+                    <option value=true>Activo</option>
+                    <option value=false>Inactivo</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span><!-- muestra el Data Annotation definido en el Modelo de Bodega, mensaje de que el campo es requerido -->
+            </div>
+        </div>
+
+        <br />
+
+        <div>
+            @if (Model.Id != 0)
+            {
+                //Si el Id es diferente de 0 siginifica que existe un Id y se actualizara y mostrara estos botones
+                <partial name="BotonesActualizarYRegresar" model="Model.Id"></partial>
+            }
+            else
+            {
+                // de lo contrario se ingresara un registro nuevo y mostrara estos botones
+                <partial name="_BotonesCrearYRegresar"></partial>
+            }
+            
+        </div>
+
+    </div>
+</form>
+
+@section Scripts { 
+    <!-- para que muestre nuestras validaciones definidas en los Data Annotation del Modelo -->
+    <partial name="_ValidationScriptsPartial"></partial> 
+
+    <script>
+
+        document.getElementById("nombre").addEventListener("change", function () {
+            validarNombre();
+        });
+
+        function validarNombre() {
+            var url = '@Url.Content("~/")' + "Admin/Marca/ValidarNombre";
+            var id = '#id';
+            var nombre = '#nombre';
+
+            $.getJSON(url, { id: $(id).val(), nombre: $(nombre).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if (value){
+                        var nombre = document.getElementById("nombre");
+                        swal("Error", "Marca ya Existe", "error");
+                        nombre.value = "";
+                    }
+                });
+            });
+        }
+
+    </script>
+}
+
+

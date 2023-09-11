@@ -14,6 +14,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
         IBodegaRepositorio Bodega { get; }
 
         ICategoriaRepositorio Categoria { get; }
+        IMarcaRepositorio Marca { get; }
 
         Task Guardar(); //metodo asincrono que se encargara de guardar los cambios
     }

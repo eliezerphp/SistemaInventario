@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i6lalU0M9bRPrTbWz5PS7QqSwXw25OJJCo2xR5RUTL8=",
+  "Hash": "3/ENIvZ0+EjjYBk1GPndWKfIE5bPspzV0mO7vEAbgSA=",
   "Source": "SistemaInventario",
   "BasePath": "_content/SistemaInventario",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\categoria.js"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\CursoUdemyNet7_SistemaInventario\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\marca.js",
+      "SourceId": "SistemaInventario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\CursoUdemyNet7_SistemaInventario\\SistemaInventario\\SistemaInventario\\wwwroot\\",
+      "BasePath": "_content/SistemaInventario",
+      "RelativePath": "js/marca.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\marca.js"
     },
     {
       "Identity": "C:\\Users\\HP\\source\\repos\\CursoUdemyNet7_SistemaInventario\\SistemaInventario\\SistemaInventario\\wwwroot\\js\\site.js",
