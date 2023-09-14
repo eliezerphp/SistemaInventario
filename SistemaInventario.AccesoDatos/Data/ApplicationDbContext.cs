@@ -17,6 +17,7 @@ namespace SistemaInventario.AccesoDatos.Data //Se agregó .AccesoDatos
         // DbSet del modelo Categorias
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Marca> Marcas { get; set; }
+        public DbSet<Producto> Productos { get; set; }
         protected override void OnModelCreating(ModelBuilder builder) //Agregado para tener mejor control de las actualizaciones de las migraciones
         {
             base.OnModelCreating(builder);
